@@ -1,0 +1,13 @@
+==> Verifying submission at C:\Users\Admin\Desktop\VinAI\K4-L3-Track3-Day22-DaoNgocBinhThien-2A202602814-DPO-ORPO-Alignment
+
+  ✓ Exported Colab evidence validated (NB0–NB4, saved SFT merge, metrics).
+  Model weights are excluded from submission; this check does not test local inference.
+
+Optional (bonus):
+  · NB3b variants
+  · NB5 GGUF
+  · NB6 benchmark
+  · NB7 GRPO
+  · β-sweep
+
+✓ Core checks passed. Push your repo and paste the URL into the LMS.

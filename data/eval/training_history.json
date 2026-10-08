@@ -1,0 +1,118 @@
+{
+  "sft": [
+    {
+      "Step": 10.0,
+      "Training Loss": 1.884179
+    },
+    {
+      "Step": 20.0,
+      "Training Loss": 1.393454
+    },
+    {
+      "Step": 30.0,
+      "Training Loss": 1.417053
+    },
+    {
+      "Step": 40.0,
+      "Training Loss": 1.303951
+    },
+    {
+      "Step": 50.0,
+      "Training Loss": 1.325929
+    },
+    {
+      "Step": 60.0,
+      "Training Loss": 1.399512
+    },
+    {
+      "Step": 70.0,
+      "Training Loss": 1.290875
+    },
+    {
+      "Step": 80.0,
+      "Training Loss": 1.295934
+    },
+    {
+      "Step": 90.0,
+      "Training Loss": 1.253475
+    },
+    {
+      "Step": 100.0,
+      "Training Loss": 1.278083
+    },
+    {
+      "Step": 110.0,
+      "Training Loss": 1.294784
+    },
+    {
+      "Step": 120.0,
+      "Training Loss": 1.284207
+    }
+  ],
+  "dpo_heldout": [
+    {
+      "Step": 25.0,
+      "Training Loss": 0.689437,
+      "Validation Loss": 0.685395,
+      "Entropy": 1.510722,
+      "Num Tokens": 145434.0,
+      "Logits/chosen": -2.120259,
+      "Logits/rejected": -2.112466,
+      "Mean Token Accuracy": 0.618878,
+      "Rewards/chosen": 0.072069,
+      "Rewards/rejected": 0.056199,
+      "Rewards/accuracies": 0.67,
+      "Rewards/margins": 0.01587,
+      "Logps/chosen": -389.97493,
+      "Logps/rejected": -328.619729
+    },
+    {
+      "Step": 50.0,
+      "Training Loss": 0.679778,
+      "Validation Loss": 0.666185,
+      "Entropy": 1.510669,
+      "Num Tokens": 278676.0,
+      "Logits/chosen": -2.128081,
+      "Logits/rejected": -2.120847,
+      "Mean Token Accuracy": 0.619127,
+      "Rewards/chosen": 0.262163,
+      "Rewards/rejected": 0.204302,
+      "Rewards/accuracies": 0.69,
+      "Rewards/margins": 0.057861,
+      "Logps/chosen": -388.073995,
+      "Logps/rejected": -327.138701
+    },
+    {
+      "Step": 75.0,
+      "Training Loss": 0.660951,
+      "Validation Loss": 0.655882,
+      "Entropy": 1.509829,
+      "Num Tokens": 423394.0,
+      "Logits/chosen": -2.1311,
+      "Logits/rejected": -2.124126,
+      "Mean Token Accuracy": 0.618947,
+      "Rewards/chosen": 0.368938,
+      "Rewards/rejected": 0.286684,
+      "Rewards/accuracies": 0.73,
+      "Rewards/margins": 0.082254,
+      "Logps/chosen": -387.006243,
+      "Logps/rejected": -326.314876
+    },
+    {
+      "Step": 100.0,
+      "Training Loss": 0.650646,
+      "Validation Loss": 0.653559,
+      "Entropy": 1.509875,
+      "Num Tokens": 557774.0,
+      "Logits/chosen": -2.132147,
+      "Logits/rejected": -2.125164,
+      "Mean Token Accuracy": 0.618848,
+      "Rewards/chosen": 0.391811,
+      "Rewards/rejected": 0.30405,
+      "Rewards/accuracies": 0.72,
+      "Rewards/margins": 0.087761,
+      "Logps/chosen": -386.777519,
+      "Logps/rejected": -326.141223
+    }
+  ]
+}

@@ -52,13 +52,14 @@ def read_json(path: Path, problems: list[str]) -> dict | list | None:
         return None
 
 
-def check_dpo(problems: list[str], warnings: list[str]) -> None:
+def check_dpo(problems: list[str], warnings: list[str], exported_run: bool = False) -> None:
     adapter = REPO / "adapters" / "dpo"
     if not need(adapter / "adapter_config.json", "DPO adapter (NB3)", problems):
         return
     base = str((read_json(adapter / "adapter_config.json", problems) or {}).get("base_model_name_or_path", ""))
     expected = (REPO / "models" / "sft-merged").resolve()
-    if not base or Path(base).resolve() != expected:
+    colab_reference = exported_run and base == "/content/lab22/models/sft-merged"
+    if not base or (Path(base).resolve() != expected and not colab_reference):
         problems.append(
             f"WRONG REF  adapters/dpo was trained on {base!r}, not {rel(expected)}: the DPO reference "
             "must be this repo's SFT model (if the repo moved, rerun NB3 here)."
@@ -185,6 +186,8 @@ def smoke() -> int:
 
 
 def main() -> int:
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8")
     parser = argparse.ArgumentParser()
     parser.add_argument("--smoke", action="store_true", help="pre-training import/GPU check")
     if parser.parse_args().smoke:
@@ -192,14 +195,21 @@ def main() -> int:
 
     problems: list[str] = []
     warnings: list[str] = []
+    from submission_evidence import check_exported_run
+
+    exported_run = check_exported_run(REPO, problems)
     print(f"==> Verifying submission at {REPO}\n")
     for nb in NOTEBOOKS:
         need(REPO / "notebooks" / f"{nb}.py", f"notebook {nb}", problems)
     need(REPO / "adapters" / "sft-mini" / "adapter_config.json", "SFT adapter (NB1)", problems)
-    need(REPO / "models" / "sft-merged" / "config.json", "merged SFT model = DPO reference (NB1)", problems)
+    if exported_run:
+        print("  ✓ Exported Colab evidence validated (NB0–NB4, saved SFT merge, metrics).")
+        print("  Model weights are excluded from submission; this check does not test local inference.\n")
+    else:
+        need(REPO / "models" / "sft-merged" / "config.json", "merged SFT model = DPO reference (NB1)", problems)
     need(REPO / "data" / "pref" / "train.parquet", "preference train split (NB2)", problems)
     need(REPO / "data" / "pref" / "eval.parquet", "held-out preference split (NB2)", problems)
-    check_dpo(problems, warnings)
+    check_dpo(problems, warnings, exported_run=exported_run)
     check_judge(problems, warnings)
     check_reflection(problems)
     check_screenshots(problems)

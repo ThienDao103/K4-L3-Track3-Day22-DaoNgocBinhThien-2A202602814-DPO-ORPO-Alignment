@@ -1,0 +1,20 @@
+{
+  "executed_notebook": "colab/Lab22_DPO_T4_executed.ipynb",
+  "executed_notebook_sha256": "48db830f356f154cc7e95928876453efcd9143f3e82bd63469f48be78e6b780c",
+  "gpu": "Tesla T4",
+  "gpu_memory_reported_gb": 14.563,
+  "peak_vram": null,
+  "peak_vram_note": "Not measured in the original run; GPU capacity is not peak allocation.",
+  "training_progress_elapsed": [
+    "10:14",
+    "27:16"
+  ],
+  "elapsed_note": "Progress display: SFT then DPO; excludes setup, reference precomputation and NB4.",
+  "sft_average_train_loss": 1.3606,
+  "exact_identical_answers": 40,
+  "total_prompts": 58,
+  "answers_with_tool_call_tags": {
+    "sft": 58,
+    "dpo": 58
+  }
+}

@@ -1,5 +1,29 @@
 # Ngày 22 — Lab căn chỉnh mô hình bằng DPO/ORPO (Track 3)
 
+## Bài nộp — Đào Ngọc Bình Thiên · 2A202602814 · K4
+
+Đã chạy phần bắt buộc NB0–NB4 trên Colab T4. Xem [bài phản tư](submission/REFLECTION.md),
+[notebook giữ nguyên output](colab/Lab22_DPO_T4_executed.ipynb) và
+[danh mục bằng chứng / cách kiểm tra](submission/README.md).
+
+| Kết quả thực tế | Giá trị |
+|---|---:|
+| Dữ liệu preference | 800 train / 100 held-out, không trùng prompt |
+| Reward accuracy held-out | 72% |
+| Margin held-out | +0,087761 |
+| DPO win rate, 50 câu held-out | 52% [CI 95%: 44%; 59%] |
+| Giám khảo được giữ sau sanity | Llama-3.2-3B; 12/12 đúng |
+
+CI chứa 50% nên chưa đủ bằng chứng DPO tốt hơn SFT. Qwen3-4B đạt sanity 8/12 và bị loại;
+cả hai reward chosen/rejected đều tăng, và các đầu ra còn thẻ `tool_call` thừa.
+REFLECTION giải thích các hạn chế này bằng số liệu gốc. Không yêu cầu điểm bonus.
+
+`colab/Lab22_DPO_T4.ipynb` là bản sạch để chạy lại **Setup → NB0–NB4**, không chạy bonus;
+`Lab22_DPO_T4_executed.ipynb` là bằng chứng lần chạy đã hoàn thành. Không ghi đè bản đã chạy
+bằng lệnh `make colab`.
+
+---
+
 Lab cho học phần **AICB-P2T3 · Ngày 22 · DPO/ORPO Alignment — từ SFT đến học theo sở thích**.
 
 > Bản K4 cập nhật tháng 10/2026 (xem [`CHANGELOG.md`](CHANGELOG.md)). Mọi thời gian trong tài liệu này là

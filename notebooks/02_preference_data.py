@@ -54,7 +54,11 @@ train_ds, eval_ds = D.load_preference_pairs(
 )
 D.assert_disjoint(list(train_ds), list(eval_ds))
 print(f"train={len(train_ds)}  eval={len(eval_ds)}  (no prompt overlap)")
-print(train_ds[0])
+for i in range(min(3, len(train_ds))):
+    row = train_ds[i]
+    print(f"\n=== Cặp {i + 1} ===")
+    for key in ("prompt", "chosen", "rejected"):
+        print(f"{key}: {row[key][0]['content']}")
 
 # %% [markdown]
 # ## 2. Thiên vị độ dài

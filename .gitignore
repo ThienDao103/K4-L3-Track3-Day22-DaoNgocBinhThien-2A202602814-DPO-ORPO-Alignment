@@ -26,6 +26,7 @@ adapters/*/*
 !adapters/*/grpo_metrics.json
 data/pref/*
 !data/pref/*.parquet
+!data/pref/stats.json
 data/eval/*
 !data/eval/*.json
 !data/eval/*.jsonl
@@ -43,6 +44,9 @@ hf_cache/
 .env
 .env.local
 *.token
+
+# Original upload is preserved locally; extracted evidence is submitted instead.
+colab/lab22_results.zip
 
 # Editor / OS
 .DS_Store
